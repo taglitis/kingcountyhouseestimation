@@ -1,0 +1,86 @@
+body {
+
+  background-image: url("/static/images/HOUSE_pic_med.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-size: 100% 100%;
+}
+
+
+p {font-weight: bold;
+   color : black;
+   font-size: 16px;
+    font: georgia}
+
+#results {
+  font-weight: bold;
+  color: black;
+  font-size: 22px;
+  font:georgia;
+}
+
+#p_bigger {
+  font-weight: bold;
+  color: black;
+  font-size: 20px;
+  font:georgia;
+}
+
+
+a {
+        font-size: 16px; /* example size, can be any size, in px, em, rem, % */
+    }
+
+h1 {
+  color: #eb8334;
+}
+
+#container {background-color:  #e6e6e6;
+            width: 950px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 3px;
+
+}
+
+#centered_div { margin-left:auto;
+               margin-right:auto;
+               width:900px;
+               padding-bottom:10px;
+             }
+
+   table#t01  th,  td {
+    border: 1px solid white;
+    border-collapse: collapse;
+    padding: 5px;
+  }
+
+   /* .container table#t02 {
+     margin: auto;
+   } */
+
+  table#t02 th,  td {
+    border: 1px solid white;
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: right;
+    margin: auto;
+  }
+
+
+table#t02 tr:nth-child(even) {
+background-color: #eee;
+}
+
+
+table#t02 tr:nth-child(odd) {
+background-color: #fff;
+}
+
+
+table#t02 th5 {
+background-color: black;
+color: white;
+}
+

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- https://pythonhow.com/add-css-to-flask-website/ -->
+<link rel="stylesheet" type = "text/css" href="{{ url_for('static', filename='css/main.css') }}">
+<title>Best Deal in King County</title>
+</head>
+<body>
+<div id="container">
+<div id="centered_div">
+  {% if result == None %}
+  <header>
+    <h1>FIND YOUR BEST DEAL IN KING COUNTY...</h1>
+  </header>
+<p>Nowadays Data Science, Machine Learning and other cutting-edge technologies
+play an important role in different aspects of our life. It can be found in
+Fintech and e-commerce, in stock prediction and voice recognition, in face
+verification and self-driving car engineering. The possibilities are amazing and
+limited only by our imagination and available technologies.
+</p>
+<p>This work estimates the price of houses in King County, WA, based on the <a href="https://www.kaggle.com/harlfoxem/housesalesprediction" target="_blank"> available data on Kaggle</a>.
+   To obtain the predicted price and similar offers based on &#177;10% of the estimated price it is necessary  to input parameters in the fields below.
+</p>
+<p>
+  This estimation  uses a LinearRegression model from the scikit-learn library in Python with the obtained R<sup>2</sup> score = 0.81 on train data and R<sup>2</sup> score = 0.82 on testing data.
+  In addition, a DesicionTreeRegressor model was built with the obtained R<sup>2</sup> value about 0.70. It means that the performance of the first model is better than of the second, because the higher the
+  R<sup>2</sup> score the better the model, taking into account that the maximum value of this parameter is one.
+</p>
+
+<form method=post action="">
+<table id="t01">
+  {% for field in form %}
+    <tr>
+    <td>{{ field.label }}</td><td>{{ field }}</td>
+    </tr>
+  {% endfor %}
+</table>
+<p><input type=submit value=Compute></p>
+</form>
+{% endif %}
+</div>
+
+{% if result != None %}
+<div id="centered_div">
+   <header>
+    <h1>FIND YOUR BEST DEAL IN KING COUNTY...<br> RESULTS...</h1>
+
+  </header>
+  <p>Estimated property price based on the chosen parameters is &#160; <strong id='results'> {{ result }}. </strong></p>
+  <p>Based on the estimated price similar offers were found with the condition &#177;10% of the estimated price within the same zipcode.</p>
+
+ <table id="t02" >
+   <tr>
+    {% for col_name in df.columns %}
+          <th>{{ col_name }}</th>
+    {% endfor %}
+     </tr>
+
+    {% for index in df.index %}
+    <tr>
+       {% for col_name in df.columns %}
+           <td>{{ df.loc[index, col_name] }}</td>
+       {% endfor %}
+     </tr>
+     {% endfor %}
+
+
+ </table>
+ </div>
+ <div id="centered_div">
+<a href="{{ url_for('index') }}">Please, press here to input new parameters...</a>
+ </div>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>
+
